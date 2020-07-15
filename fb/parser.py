@@ -67,7 +67,7 @@ def parse_saved_json_response_html(data):
     return html
 
 
-def remove_params(url, params=('fbclid', 'eid')):
+def remove_params(url, params=('fbclid', 'eid', 'ref')):
     url = parse_link(url)
     u = parse.urlparse(url)
     q = dict(parse.parse_qsl(u.query))
