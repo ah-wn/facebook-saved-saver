@@ -23,7 +23,21 @@ class Facebook(object):
 
     def __init__(self):
         self.client = HTMLSession()
+
+        def response_hook(response, *args, **kwargs):
+            unwanted_prefix = b'for (;;);'
+            if response.content.startswith(unwanted_prefix):
+                response._content = response.content[len(unwanted_prefix):]
+            # print(r)
+
+        self.client.hooks['response'].append(response_hook)
         self.__csrf = self.config()
+
+    @classmethod
+    def make_html(cls, raw_html):
+        html = HTML(html=raw_html)
+        html.url = cls.URL
+        return html
 
     @property
     def csrf(self):
