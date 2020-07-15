@@ -51,3 +51,14 @@ class SavedItems(Facebook):
         saved_iter = self.get_saved_more()
         for html in saved_iter:
             yield from map(SavedItem, html.find(SavedItem.ITEMS_CSS))
+
+    def remove(self, item_id):
+        token = self.csrf['token']
+        return self.client.post('https://www.facebook.com/save/story/', stream=True,
+                                params={
+                                    'object_id': item_id,
+                                    'action': 'UNSAVE',
+                                    'mechanism': 'xout_button',
+                                    'surface': 'save_dashboard',
+                                    'fb_dtsg': token
+                                })
