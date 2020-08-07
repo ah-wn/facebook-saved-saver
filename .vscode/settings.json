@@ -1,0 +1,30 @@
+{
+    "python.formatting.provider": "autopep8",
+    "python.pythonPath": "C:\\Users\\dell\\Miniconda3\\python.exe",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./",
+        "-p",
+        "*_test.py"
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.pytest_cache": true,
+        "**/.gitignore": true,
+        "**/__pycache__": true,
+        "fb\\pytests/__init__.py": true,
+        "**/.gitattributes": true
+    },
+    "explorerExclude.backup": null
+}

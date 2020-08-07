@@ -7,7 +7,7 @@ class SavedItem(object):
     ITEMS_CSS = '#saveContentFragment div[id^=item-]'
 
     def __init__(self, html):
-        # self.html = html
+        self.html = html
         self.id = html.attrs['id'][5:]
         item_info_css = 'div._tev div._4bl9._5yjp'
 
@@ -24,7 +24,7 @@ class SavedItem(object):
                 span = info.find('div._3vo5._268b', first=1).text
                 self.photos = parser.post_item_if_photos(span)
 
-        orig = html.find('a._24-t[href]', first=1)
+        orig = html.find('span.fcg>a._24-t[href]', first=1)
         self.orig = None
         if orig:
             self.orig = html._make_absolute(orig
